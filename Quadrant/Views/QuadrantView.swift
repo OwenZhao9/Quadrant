@@ -50,6 +50,9 @@ struct QuadrantCell: View {
     @Binding var editingTask: TaskItem?
     @Environment(TaskStore.self) private var taskStore
     @Environment(SettingsStore.self) private var settings
+    @State private var isAddingTask = false
+    @State private var newTaskTitle = ""
+    @FocusState private var isTextFieldFocused: Bool
 
     private var quadrantColor: Color {
         switch quadrant {
@@ -87,6 +90,27 @@ struct QuadrantCell: View {
                         })
                         .draggable(task.id.uuidString)
                     }
+
+                    if isAddingTask {
+                        HStack(spacing: 6) {
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(Color.gray.opacity(0.3), lineWidth: 1.5)
+                                .frame(width: 16, height: 16)
+
+                            TextField(
+                                settings.language == .chinese ? "输入任务..." : "Enter task...",
+                                text: $newTaskTitle
+                            )
+                            .font(.caption)
+                            .textFieldStyle(.plain)
+                            .focused($isTextFieldFocused)
+                            .onSubmit {
+                                submitNewTask()
+                            }
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
+                    }
                 }
             }
 
@@ -95,6 +119,26 @@ struct QuadrantCell: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(backgroundColor)
         .contentShape(Rectangle())
+        .onTapGesture {
+            if isAddingTask {
+                submitNewTask()
+            } else {
+                isAddingTask = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isTextFieldFocused = true
+                }
+            }
+        }
+        .onChange(of: isTextFieldFocused) { _, focused in
+            if !focused && isAddingTask {
+                submitNewTask()
+            }
+        }
+        .onDisappear {
+            if isAddingTask {
+                submitNewTask()
+            }
+        }
         .dropDestination(for: String.self) { items, _ in
             guard let idString = items.first, let uuid = UUID(uuidString: idString) else { return false }
             if let task = taskStore.tasks.first(where: { $0.id == uuid }) {
@@ -102,6 +146,16 @@ struct QuadrantCell: View {
             }
             return true
         }
+    }
+
+    private func submitNewTask() {
+        isTextFieldFocused = false
+        let trimmed = newTaskTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty {
+            taskStore.addTask(title: trimmed, quadrant: quadrant)
+        }
+        newTaskTitle = ""
+        isAddingTask = false
     }
 }
 

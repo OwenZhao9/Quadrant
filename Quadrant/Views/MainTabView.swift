@@ -20,7 +20,6 @@ struct MainTabView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Content
             Group {
                 switch selectedTab {
                 case .history:
@@ -33,14 +32,17 @@ struct MainTabView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            // Custom tab bar
             Divider()
             HStack {
                 ForEach(TabItem.allCases, id: \.rawValue) { tab in
                     Spacer()
                     Button {
                         if tab == .quadrant {
-                            showAddSheet = true
+                            if selectedTab == .quadrant {
+                                showAddSheet = true
+                            } else {
+                                selectedTab = .quadrant
+                            }
                         } else {
                             selectedTab = tab
                         }
