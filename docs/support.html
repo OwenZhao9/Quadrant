@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrant - Support</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #f5f3ee;
+            --card: rgba(255, 255, 255, 0.88);
+            --text: #1f1d1a;
+            --muted: #6b645c;
+            --accent: #1f6feb;
+            --border: rgba(31, 29, 26, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #161412;
+                --card: rgba(34, 31, 28, 0.9);
+                --text: #f4efe7;
+                --muted: #c2b9ae;
+                --accent: #7cb5ff;
+                --border: rgba(244, 239, 231, 0.08);
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(31, 111, 235, 0.12), transparent 28%),
+                linear-gradient(180deg, var(--bg), #ffffff 120%);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 20px 64px;
+        }
+
+        article {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 24px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        h1, h2 {
+            line-height: 1.2;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            margin-top: 28px;
+            font-size: 1.15rem;
+        }
+
+        p, li {
+            color: var(--text);
+        }
+
+        .meta, .muted {
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .lang-switch {
+            text-align: right;
+            margin-bottom: -8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lang-switch button {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lang-switch button:hover {
+            opacity: 0.8;
+        }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        .nav {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <div class="lang-switch">
+                <button onclick="switchLang()">English / 中文</button>
+            </div>
+
+            <!-- English -->
+            <div id="en" class="lang-content active">
+                <h1>Quadrant Support</h1>
+                <p class="meta">Task management based on the Eisenhower Matrix</p>
+
+                <h2>About Quadrant</h2>
+                <p>
+                    Quadrant helps you organize tasks by urgency and importance using four quadrants.
+                    All data is stored locally on your device — no account required, no data collected.
+                </p>
+
+                <h2>Features</h2>
+                <ul>
+                    <li>Four-quadrant task management (Eisenhower Matrix)</li>
+                    <li>Task completion history with calendar view</li>
+                    <li>Chinese and English language support</li>
+                    <li>Dark mode support</li>
+                    <li>100% local data storage, protecting your privacy</li>
+                </ul>
+
+                <h2>FAQ</h2>
+                <p><strong>Will I lose my data after updating the app?</strong><br>
+                No. All your task data is stored locally and will be preserved after app updates.</p>
+
+                <p><strong>Does Quadrant collect any personal data?</strong><br>
+                No. Quadrant does not collect, transmit, or share any personal information.</p>
+
+                <h2>Contact Us</h2>
+                <p>
+                    If you have questions, feedback, or need help, please contact us at:<br>
+                    <a href="mailto:zhaoningup@gmail.com">zhaoningup@gmail.com</a>
+                </p>
+
+                <p class="nav">
+                    <a href="./privacy-policy.html">Privacy Policy</a>
+                </p>
+            </div>
+
+            <!-- 中文 -->
+            <div id="zh" class="lang-content">
+                <h1>Quadrant 技术支持</h1>
+                <p class="meta">基于艾森豪威尔矩阵的任务管理工具</p>
+
+                <h2>关于 Quadrant</h2>
+                <p>
+                    Quadrant 帮助你按照紧急程度和重要程度，将任务分配到四个象限中进行管理。
+                    所有数据存储在本地设备上，无需注册账户，不收集任何数据。
+                </p>
+
+                <h2>主要功能</h2>
+                <ul>
+                    <li>四象限任务管理（艾森豪威尔矩阵）</li>
+                    <li>任务完成历史记录，支持日历查看</li>
+                    <li>中英双语支持</li>
+                    <li>深色模式支持</li>
+                    <li>100% 本地数据存储，保护你的隐私</li>
+                </ul>
+
+                <h2>常见问题</h2>
+                <p><strong>更新 App 后会丢失数据吗？</strong><br>
+                不会。所有任务数据存储在本地，App 更新后数据会完整保留。</p>
+
+                <p><strong>Quadrant 会收集个人数据吗？</strong><br>
+                不会。Quadrant 不会收集、传输或共享任何个人信息。</p>
+
+                <h2>联系我们</h2>
+                <p>
+                    如果你有任何问题、建议或需要帮助，请联系：<br>
+                    <a href="mailto:zhaoningup@gmail.com">zhaoningup@gmail.com</a>
+                </p>
+
+                <p class="nav">
+                    <a href="./privacy-policy.html">隐私政策</a>
+                </p>
+            </div>
+        </article>
+    </main>
+    <script>
+        function switchLang() {
+            var zh = document.getElementById('zh');
+            var en = document.getElementById('en');
+            zh.classList.toggle('active');
+            en.classList.toggle('active');
+            document.documentElement.lang = zh.classList.contains('active') ? 'zh-CN' : 'en';
+        }
+    </script>
+</body>
+</html>
