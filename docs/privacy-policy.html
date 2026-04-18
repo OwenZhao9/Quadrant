@@ -83,11 +83,13 @@
 
         .lang-switch {
             text-align: right;
-            margin-bottom: 16px;
+            margin-bottom: -8px;
+            position: relative;
+            z-index: 1;
         }
 
         .lang-switch button {
-            background: var(--card);
+            background: transparent;
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 6px 14px;
@@ -107,10 +109,10 @@
 </head>
 <body>
     <main>
-        <div class="lang-switch">
-            <button onclick="switchLang()">English / 中文</button>
-        </div>
         <article>
+            <div class="lang-switch">
+                <button onclick="switchLang()">English / 中文</button>
+            </div>
             <!-- 中文版 -->
             <div id="zh" class="lang-content">
                 <h1>Quadrant 隐私政策</h1>
