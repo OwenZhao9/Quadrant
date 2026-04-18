@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,64 +80,144 @@
         ul {
             padding-left: 20px;
         }
+
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 16px;
+        }
+
+        .lang-switch button {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lang-switch button:hover {
+            opacity: 0.8;
+        }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
     </style>
 </head>
 <body>
     <main>
+        <div class="lang-switch">
+            <button onclick="switchLang()">English / 中文</button>
+        </div>
         <article>
-            <h1>Privacy Policy for Quadrant</h1>
-            <p class="meta">Effective date: September 3, 2025</p>
+            <!-- 中文版 -->
+            <div id="zh" class="lang-content active">
+                <h1>Quadrant 隐私政策</h1>
+                <p class="meta">生效日期：2025 年 9 月 3 日</p>
 
-            <p>
-                Quadrant is a local task management app. This Privacy Policy explains what information the app handles
-                and how that information is used.
-            </p>
+                <p>
+                    Quadrant 是一款本地任务管理应用。本隐私政策说明了本应用如何处理和使用信息。
+                </p>
 
-            <h2>Information We Collect</h2>
-            <p>
-                Quadrant does not require account registration and does not collect personal information such as your
-                name, email address, phone number, or location through the app.
-            </p>
+                <h2>我们收集的信息</h2>
+                <p>
+                    Quadrant 不需要注册账户，也不会通过本应用收集您的姓名、电子邮件地址、电话号码或位置等个人信息。
+                </p>
 
-            <h2>Data Stored on Your Device</h2>
-            <p>
-                The app stores task content, completion history, language preferences, and theme preferences locally on
-                your device so the app can function properly.
-            </p>
+                <h2>存储在您设备上的数据</h2>
+                <p>
+                    本应用会在您的设备本地存储任务内容、完成历史、语言偏好和主题偏好，以确保应用正常运行。
+                </p>
 
-            <h2>Analytics, Tracking, and Advertising</h2>
-            <p>
-                Quadrant does not use third-party analytics, does not track you across apps or websites, and does not
-                display third-party advertising.
-            </p>
+                <h2>分析、追踪和广告</h2>
+                <p>
+                    Quadrant 不使用第三方分析工具，不会跨应用或网站追踪您，也不会展示第三方广告。
+                </p>
 
-            <h2>Data Sharing</h2>
-            <p>
-                Quadrant does not sell, rent, or share your data with third parties. Your task data remains on your
-                device unless you choose to share your device data through your own backup or system services.
-            </p>
+                <h2>数据共享</h2>
+                <p>
+                    Quadrant 不会出售、出租或与第三方共享您的数据。您的任务数据保存在您的设备上，除非您通过自己的备份或系统服务选择共享设备数据。
+                </p>
 
-            <h2>Children's Privacy</h2>
-            <p>
-                Quadrant does not knowingly collect personal information from children.
-            </p>
+                <h2>儿童隐私</h2>
+                <p>
+                    Quadrant 不会故意收集儿童的个人信息。
+                </p>
 
-            <h2>Contact</h2>
-            <p>
-                If you have questions about this Privacy Policy, you can contact:
-                <a href="mailto:zhaoningup@gmail.com">zhaoningup@gmail.com</a>
-            </p>
+                <h2>联系方式</h2>
+                <p>
+                    如果您对本隐私政策有任何疑问，可以联系：
+                    <a href="mailto:zhaoningup@gmail.com">zhaoningup@gmail.com</a>
+                </p>
 
-            <h2>Changes to This Policy</h2>
-            <p>
-                This Privacy Policy may be updated from time to time. Any updates will be posted on this page with the
-                revised effective date.
-            </p>
+                <h2>政策变更</h2>
+                <p>
+                    本隐私政策可能会不时更新。任何更新都将发布在此页面上，并注明修订后的生效日期。
+                </p>
+            </div>
 
-            <p class="muted">
-                GitHub Pages URL for this document can be used as the privacy policy URL in App Store Connect.
-            </p>
+            <!-- English -->
+            <div id="en" class="lang-content">
+                <h1>Privacy Policy for Quadrant</h1>
+                <p class="meta">Effective date: September 3, 2025</p>
+
+                <p>
+                    Quadrant is a local task management app. This Privacy Policy explains what information the app handles
+                    and how that information is used.
+                </p>
+
+                <h2>Information We Collect</h2>
+                <p>
+                    Quadrant does not require account registration and does not collect personal information such as your
+                    name, email address, phone number, or location through the app.
+                </p>
+
+                <h2>Data Stored on Your Device</h2>
+                <p>
+                    The app stores task content, completion history, language preferences, and theme preferences locally on
+                    your device so the app can function properly.
+                </p>
+
+                <h2>Analytics, Tracking, and Advertising</h2>
+                <p>
+                    Quadrant does not use third-party analytics, does not track you across apps or websites, and does not
+                    display third-party advertising.
+                </p>
+
+                <h2>Data Sharing</h2>
+                <p>
+                    Quadrant does not sell, rent, or share your data with third parties. Your task data remains on your
+                    device unless you choose to share your device data through your own backup or system services.
+                </p>
+
+                <h2>Children's Privacy</h2>
+                <p>
+                    Quadrant does not knowingly collect personal information from children.
+                </p>
+
+                <h2>Contact</h2>
+                <p>
+                    If you have questions about this Privacy Policy, you can contact:
+                    <a href="mailto:zhaoningup@gmail.com">zhaoningup@gmail.com</a>
+                </p>
+
+                <h2>Changes to This Policy</h2>
+                <p>
+                    This Privacy Policy may be updated from time to time. Any updates will be posted on this page with the
+                    revised effective date.
+                </p>
+            </div>
         </article>
     </main>
+    <script>
+        function switchLang() {
+            var zh = document.getElementById('zh');
+            var en = document.getElementById('en');
+            zh.classList.toggle('active');
+            en.classList.toggle('active');
+            document.documentElement.lang = zh.classList.contains('active') ? 'zh-CN' : 'en';
+        }
+    </script>
 </body>
 </html>
